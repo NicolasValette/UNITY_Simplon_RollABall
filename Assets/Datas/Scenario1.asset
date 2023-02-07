@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7698cba41d9f3614abc5983737c675ab, type: 3}
+  m_Name: Scenario1
+  m_EditorClassIdentifier: 
+  WallPrefab: {fileID: 8447899404533781853, guid: a7bb6f1125ef2f146942b7a4faa26168, type: 3}
+  Walls:
+  - position: {x: -3.14, y: 1, z: 4.02}
+    rotation: {x: 0, y: 0, z: 0, w: 1}
+  - position: {x: -0.09, y: 1, z: 3.02}
+    rotation: {x: 0, y: 0.6633104, z: 0, w: 0.74834436}
+  - position: {x: 1.79, y: 1, z: 3.37}
+    rotation: {x: 0, y: 0.46514252, z: 0, w: 0.8852359}
+  - position: {x: 3.56, y: 1, z: 3.28}
+    rotation: {x: 0, y: 0.71414036, z: 0, w: 0.70000255}
+  - position: {x: 3.17, y: 1, z: -1.47}
+    rotation: {x: 0, y: 0.8030397, z: 0, w: 0.5959255}
+  - position: {x: 0.74, y: 1, z: -3.92}
+    rotation: {x: 0, y: 0.999768, z: 0, w: 0.021542445}
+  - position: {x: -2.52, y: 1, z: -3.01}
+    rotation: {x: 0, y: 0.99396664, z: 0, w: -0.1096828}
