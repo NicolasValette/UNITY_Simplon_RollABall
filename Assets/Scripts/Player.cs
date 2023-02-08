@@ -15,7 +15,9 @@ public class Player : MonoBehaviour
     [SerializeField]
     private ScenarioData _scenario;
     [SerializeField]
-    private float _speed = 2f;
+    private float _moveSpeed = 200f;
+    [SerializeField]
+    private float _rotationSpeed = 20f;
     [SerializeField] 
     private TMP_Text _scoreText;
     [SerializeField]
@@ -23,21 +25,28 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        if (SceneManager.GetActiveScene().buildIndex != 0)
-        {
-            _scoreValue = PlayerPrefs.GetInt("Score");
-        }
+
+       
+            _scoreValue = PlayerPrefs.GetInt("Score");    
+     
+     
         _targetDestroyed = 0;
         _rigidbody = GetComponent<Rigidbody>();
         _scoreText.text = "Score : " + _scoreValue;
-        _scoreSOText.text = "ScoreSO : " +  _score.Score;
+        //_scoreSOText.text = "ScoreSO : " +  _score.Score;
     }
 
     void Update()
     {
-        if(Input.GetAxis("Horizontal") != 0f || Input.GetAxis("Vertical") != 0f) 
+        Vector3 moveDir = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
+        moveDir.Normalize();
+        if (moveDir != Vector3.zero) 
         {
-            _rigidbody.AddForce(Input.GetAxis("Horizontal") * _speed * Time.deltaTime, 0f, Input.GetAxis("Vertical") * _speed * Time.deltaTime);
+            //_rigidbody.AddForce(Input.GetAxis("Horizontal") * _speed * Time.deltaTime, 0f, Input.GetAxis("Vertical") * _speed * Time.deltaTime);
+            //_rigidbody.AddForce(moveDir * _moveSpeed * Time.deltaTime);
+            transform.Translate(moveDir * _moveSpeed * Time.deltaTime, Space.World);
+            Quaternion toRotation = Quaternion.LookRotation(moveDir, Vector3.up);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, _rotationSpeed * Time.deltaTime);
         }
         
     }
@@ -62,12 +71,12 @@ public class Player : MonoBehaviour
     {
         Destroy(target);
         _scoreValue++;
-        _score.Score++;
+      //  _score.Score++;
         
        
         PlayerPrefs.SetInt("Score", _scoreValue);
         _scoreText.text = "Score : " + _scoreValue;
-        _scoreSOText.text = "Score SO: " + _score.Score;
+       // _scoreSOText.text = "Score SO: " + _score.Score;
 
         if (_targetDestroyed < _scenario.Walls.Count)
         {
@@ -76,7 +85,7 @@ public class Player : MonoBehaviour
         _targetDestroyed++;
         if (_targetDestroyed >= 8)
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 }
