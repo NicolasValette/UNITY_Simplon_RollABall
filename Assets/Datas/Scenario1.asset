@@ -14,17 +14,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WallPrefab: {fileID: 8447899404533781853, guid: a7bb6f1125ef2f146942b7a4faa26168, type: 3}
   Walls:
-  - position: {x: -3.14, y: 1, z: 4.02}
-    rotation: {x: 0, y: 0, z: 0, w: 1}
-  - position: {x: -0.09, y: 1, z: 3.02}
-    rotation: {x: 0, y: 0.6633104, z: 0, w: 0.74834436}
-  - position: {x: 1.79, y: 1, z: 3.37}
-    rotation: {x: 0, y: 0.46514252, z: 0, w: 0.8852359}
-  - position: {x: 3.56, y: 1, z: 3.28}
-    rotation: {x: 0, y: 0.71414036, z: 0, w: 0.70000255}
-  - position: {x: 3.17, y: 1, z: -1.47}
-    rotation: {x: 0, y: 0.8030397, z: 0, w: 0.5959255}
-  - position: {x: 0.74, y: 1, z: -3.92}
-    rotation: {x: 0, y: 0.999768, z: 0, w: 0.021542445}
-  - position: {x: -2.52, y: 1, z: -3.01}
-    rotation: {x: 0, y: 0.99396664, z: 0, w: -0.1096828}
+  - Position: {x: -3.7, y: 0, z: 1.14}
+    Rotation: {x: 0, y: 0, z: 0, w: 0}
+    TargetNeeded: 1
+  - Position: {x: -1.45, y: 0, z: 1.14}
+    Rotation: {x: 0, y: 0, z: 0, w: 0}
+    TargetNeeded: 1
+  - Position: {x: 0.79999995, y: 0, z: 1.14}
+    Rotation: {x: 0, y: 0, z: 0, w: 0}
+    TargetNeeded: 1
+  - Position: {x: 3.05, y: 0, z: 1.14}
+    Rotation: {x: 0, y: 0, z: 0, w: 0}
+    TargetNeeded: 1
+  - Position: {x: -2.41, y: 0, z: -0.69}
+    Rotation: {x: 0, y: 0.70710677, z: 0, w: 0.70710677}
+    TargetNeeded: 2
+  - Position: {x: 0.08, y: 0, z: 2.51}
+    Rotation: {x: 0, y: 0.70710677, z: 0, w: 0.70710677}
+    TargetNeeded: 2
+  - Position: {x: 2.84, y: 0, z: -0.6900006}
+    Rotation: {x: 0, y: 0.70710677, z: 0, w: 0.70710677}
+    TargetNeeded: 2
+  - Position: {x: 2.17, y: 0, z: 2.48}
+    Rotation: {x: 0, y: 0.70710677, z: 0, w: 0.70710677}
+    TargetNeeded: 3
+  - Position: {x: 0.06, y: 0, z: -0.69}
+    Rotation: {x: 0, y: 0.70710677, z: 0, w: 0.70710677}
+    TargetNeeded: 3
+  - Position: {x: -1.6500001, y: 0, z: 2.5500004}
+    Rotation: {x: 0, y: 0.70710677, z: 0, w: 0.70710677}
+    TargetNeeded: 3

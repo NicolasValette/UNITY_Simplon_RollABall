@@ -6,49 +6,56 @@ using TMPro;
 
 public class Player : MonoBehaviour
 {
-    private Rigidbody _rigidbody;
-    private int _scoreValue = 0;
-    private int _targetDestroyed = 0;
-
+    #region Serialized fields
+    [Header("Datas")]
     [SerializeField]
     private ScoreData _score;
     [SerializeField]
     private ScenarioData _scenario;
     [SerializeField]
-    private float _moveSpeed = 200f;
+    private PlayerData _playerStats;
+    [Header("UI")]
     [SerializeField]
-    private float _rotationSpeed = 20f;
-    [SerializeField] 
     private TMP_Text _scoreText;
     [SerializeField]
     private TMP_Text _scoreSOText;
-
+    #endregion
+    private Rigidbody _rigidbody;
+    private int _scoreValue = 0;
+    private int _targetDestroyed = 0;
+    private bool _isGameStarted = false;
     void Start()
     {
-
-       
-            _scoreValue = PlayerPrefs.GetInt("Score");    
-     
-     
+        _scoreValue = PlayerPrefs.GetInt("Score");
         _targetDestroyed = 0;
         _rigidbody = GetComponent<Rigidbody>();
         _scoreText.text = "Score : " + _scoreValue;
         //_scoreSOText.text = "ScoreSO : " +  _score.Score;
     }
+    private void OnEnable()
+    {
+        Countdown.OnStartGame += StartGame;
+    }
+    private void OnDisable()
+    {
+        Countdown.OnStartGame -= StartGame;
+    }
 
     void Update()
     {
-        Vector3 moveDir = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
-        moveDir.Normalize();
-        if (moveDir != Vector3.zero) 
+        if (_isGameStarted)
         {
-            //_rigidbody.AddForce(Input.GetAxis("Horizontal") * _speed * Time.deltaTime, 0f, Input.GetAxis("Vertical") * _speed * Time.deltaTime);
-            //_rigidbody.AddForce(moveDir * _moveSpeed * Time.deltaTime);
-            transform.Translate(moveDir * _moveSpeed * Time.deltaTime, Space.World);
-            Quaternion toRotation = Quaternion.LookRotation(moveDir, Vector3.up);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, _rotationSpeed * Time.deltaTime);
+            Vector3 moveDir = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
+            moveDir.Normalize();
+            if (moveDir != Vector3.zero)
+            {
+                //_rigidbody.AddForce(Input.GetAxis("Horizontal") * _speed * Time.deltaTime, 0f, Input.GetAxis("Vertical") * _speed * Time.deltaTime);
+                //_rigidbody.AddForce(moveDir * _moveSpeed * Time.deltaTime);
+                transform.Translate(moveDir * _playerStats.MoveSpeed * Time.deltaTime, Space.World);
+                Quaternion toRotation = Quaternion.LookRotation(moveDir, Vector3.up);
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, _playerStats.RotationSpeed * Time.deltaTime);
+            }
         }
-        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -71,21 +78,30 @@ public class Player : MonoBehaviour
     {
         Destroy(target);
         _scoreValue++;
-      //  _score.Score++;
-        
-       
+        //  _score.Score++;
+
+
         PlayerPrefs.SetInt("Score", _scoreValue);
         _scoreText.text = "Score : " + _scoreValue;
-       // _scoreSOText.text = "Score SO: " + _score.Score;
-
-        if (_targetDestroyed < _scenario.Walls.Count)
-        {
-            Instantiate(_scenario.WallPrefab, _scenario.Walls[_targetDestroyed].position, _scenario.Walls[_targetDestroyed].rotation);
-        }
+        // _scoreSOText.text = "Score SO: " + _score.Score;
         _targetDestroyed++;
+        for (int i = 0; i < _scenario.Walls.Count; i++)
+        {
+            if (_scenario.Walls[i].TargetNeeded == _targetDestroyed)
+            {
+                Debug.Log("Instantiate element : " + i);
+                Instantiate(_scenario.WallPrefab, _scenario.Walls[i].Position, _scenario.Walls[i].Rotation);
+            }
+        }
+
+
         if (_targetDestroyed >= 8)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
+    }
+    public void StartGame()
+    {
+        _isGameStarted = true;
     }
 }
