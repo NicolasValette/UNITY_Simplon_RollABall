@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WallPrefab: {fileID: 0}
   Walls:
-  - Position: {x: 0, y: 0, z: 0}
+  - MenaceType: 0
+    Position: {x: 0, y: 0, z: 0}
     Rotation: {x: 0, y: 0, z: 0, w: 0}
     TargetNeeded: 0

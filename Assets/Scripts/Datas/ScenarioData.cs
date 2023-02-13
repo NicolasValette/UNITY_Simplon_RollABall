@@ -5,8 +5,13 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Data/New Scenario")]
 public class ScenarioData : ScriptableObject
 {
+    public enum MenaceType
+    {
+        Wall,
+        Ennenmy
+    }
     public GameObject WallPrefab;
-    public List<SpawningWalls> Walls;
-
+    public GameObject PiratePrefab;
+    public List<SpawningMenace> Menaces;
     
 }

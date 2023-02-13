@@ -1,8 +1,8 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using System;
 
 public class Player : MonoBehaviour
 {
@@ -24,6 +24,8 @@ public class Player : MonoBehaviour
     private int _scoreValue = 0;
     private int _targetDestroyed = 0;
     private bool _isGameStarted = false;
+
+    public static event Action LevelCompleted;
     void Start()
     {
         _scoreValue = PlayerPrefs.GetInt("Score");
@@ -85,19 +87,20 @@ public class Player : MonoBehaviour
         _scoreText.text = "Score : " + _scoreValue;
         // _scoreSOText.text = "Score SO: " + _score.Score;
         _targetDestroyed++;
-        for (int i = 0; i < _scenario.Walls.Count; i++)
+        for (int i = 0; i < _scenario.Menaces.Count; i++)
         {
-            if (_scenario.Walls[i].TargetNeeded == _targetDestroyed)
+            if (_scenario.Menaces[i].TargetNeeded == _targetDestroyed)
             {
                 Debug.Log("Instantiate element : " + i);
-                Instantiate(_scenario.WallPrefab, _scenario.Walls[i].Position, _scenario.Walls[i].Rotation);
+                Instantiate(_scenario.WallPrefab, _scenario.Menaces[i].Position, _scenario.Menaces[i].Rotation);
             }
         }
 
 
         if (_targetDestroyed >= 8)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            LevelCompleted?.Invoke();
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
     public void StartGame()
