@@ -7,14 +7,13 @@ using System;
 public class Player : MonoBehaviour
 {
     #region Serialized fields
+    [SerializeField]
+    private LevelManager _levelManager;
     [Header("Datas")]
     [SerializeField]
     private ScoreData _score;
     [SerializeField]
-    private LevelManager _levelManager;
-    [SerializeField]
-    private PlayerData _playerStats;
-    [Header("UI")]
+    private PlayerData _playerData;
     [SerializeField]
     private TMP_Text _scoreText;
     [SerializeField]
@@ -51,13 +50,14 @@ public class Player : MonoBehaviour
         {
             Vector3 moveDir = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
             moveDir.Normalize();
+            Debug.Log(moveDir);
             if (moveDir != Vector3.zero)
             {
                 //_rigidbody.AddForce(Input.GetAxis("Horizontal") * _speed * Time.deltaTime, 0f, Input.GetAxis("Vertical") * _speed * Time.deltaTime);
                 //_rigidbody.AddForce(moveDir * _moveSpeed * Time.deltaTime);
-                transform.Translate(moveDir * _playerStats.MoveSpeed * Time.deltaTime, Space.World);
+                transform.Translate(moveDir * _playerData.MoveSpeed * Time.deltaTime, Space.World);
                 Quaternion toRotation = Quaternion.LookRotation(moveDir, Vector3.up);
-                transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, _playerStats.RotationSpeed * Time.deltaTime);
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, _playerData.RotationSpeed * Time.deltaTime);
             }
         }
     }

@@ -313,7 +313,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: -1444460858095362738, guid: de9d24b0ef4d78a43b655668178ff868, type: 3}
-  - {fileID: -8649992195856677659, guid: de9d24b0ef4d78a43b655668178ff868, type: 3}
+  - {fileID: 2100000, guid: 4b2834a9b75ef9947a2def9cd6bb2f03, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -348,7 +348,7 @@ GameObject:
   - component: {fileID: 7162547753019722404}
   - component: {fileID: 7162547753019722406}
   m_Layer: 0
-  m_Name: Player Ship
+  m_Name: Player1 Ship
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -388,7 +388,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 84
   m_CollisionDetection: 0
 --- !u!136 &7162547753019722404
 CapsuleCollider:
@@ -417,7 +417,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _score: {fileID: 11400000, guid: fec8509d67c0d2e42b6c732a0e24ead9, type: 2}
-  _scenario: {fileID: 11400000, guid: 26caf78b3c6704341902787e2712756b, type: 2}
+  _levelManager: {fileID: 0}
   _playerStats: {fileID: 11400000, guid: 3e04b7a50a9ac3045a1a93a503704385, type: 2}
   _scoreText: {fileID: 0}
   _scoreSOText: {fileID: 0}
