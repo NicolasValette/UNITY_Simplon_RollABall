@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     private ScoreData _score;
     [SerializeField]
-    private ScenarioData _scenario;
+    private LevelManager _levelManager;
     [SerializeField]
     private PlayerData _playerStats;
     [Header("UI")]
@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
     private int _scoreValue = 0;
     private int _targetDestroyed = 0;
     private bool _isGameStarted = false;
+    private ScenarioData _scenario;
 
     public static event Action LevelCompleted;
     void Start()
@@ -33,6 +34,7 @@ public class Player : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody>();
         _scoreText.text = "Score : " + _scoreValue;
         //_scoreSOText.text = "ScoreSO : " +  _score.Score;
+        _scenario = _levelManager.GetScenarioLevel();
     }
     private void OnEnable()
     {

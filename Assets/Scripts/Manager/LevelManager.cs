@@ -6,9 +6,12 @@ public class LevelManager : MonoBehaviour
 {
 
     [SerializeField]
-    private int _TargetNeeded;
-    // Start is called before the first frame update
+    private List<ScenarioData> ScenarioList;
 
-
-    
+    public ScenarioData GetScenarioLevel()
+    {
+        int ind = Random.Range (0, ScenarioList.Count);
+        Debug.Log(ind);
+        return ScenarioList[ind];
+    }
 }

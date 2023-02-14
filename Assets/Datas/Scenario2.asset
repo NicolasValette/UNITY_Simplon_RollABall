@@ -12,9 +12,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7698cba41d9f3614abc5983737c675ab, type: 3}
   m_Name: Scenario2
   m_EditorClassIdentifier: 
-  WallPrefab: {fileID: 0}
-  Walls:
+  WallPrefab: {fileID: 8447899404533781853, guid: a7bb6f1125ef2f146942b7a4faa26168, type: 3}
+  PiratePrefab: {fileID: 0}
+  Menaces:
   - MenaceType: 0
-    Position: {x: 0, y: 0, z: 0}
-    Rotation: {x: 0, y: 0, z: 0, w: 0}
-    TargetNeeded: 0
+    Position: {x: -3.69, y: 0, z: 3.9}
+    Rotation: {x: 0, y: -0.2839919, z: 0, w: 0.9588267}
+    TargetNeeded: 1
+  - MenaceType: 0
+    Position: {x: -1.1, y: 0, z: 5.39}
+    Rotation: {x: 0, y: -0.031363823, z: 0, w: 0.999508}
+    TargetNeeded: 2
+  - MenaceType: 0
+    Position: {x: 2.03, y: 0, z: 5.59}
+    Rotation: {x: 0, y: -0.031363823, z: 0, w: 0.999508}
+    TargetNeeded: 3
+  - MenaceType: 0
+    Position: {x: 5.03, y: 0, z: 4.32}
+    Rotation: {x: 0, y: 0.3644714, z: 0, w: 0.93121463}
+    TargetNeeded: 4
+  - MenaceType: 0
+    Position: {x: -4.24, y: 0, z: -1.64}
+    Rotation: {x: 0, y: 0.3644714, z: 0, w: 0.93121463}
+    TargetNeeded: 5
+  - MenaceType: 0
+    Position: {x: -1.15, y: 0, z: -2.45}
+    Rotation: {x: 0, y: 0.017445335, z: 0, w: 0.9998478}
+    TargetNeeded: 6
+  - MenaceType: 0
+    Position: {x: 1.43, y: 0, z: -2.83}
+    Rotation: {x: 0, y: 0.017445335, z: 0, w: 0.9998478}
+    TargetNeeded: 7
+  - MenaceType: 0
+    Position: {x: 5.5, y: 0, z: -2.2}
+    Rotation: {x: 0, y: -0.33958977, z: 0, w: 0.94057363}
+    TargetNeeded: 7

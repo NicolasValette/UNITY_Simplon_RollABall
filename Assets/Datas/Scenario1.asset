@@ -13,34 +13,45 @@ MonoBehaviour:
   m_Name: Scenario1
   m_EditorClassIdentifier: 
   WallPrefab: {fileID: 8447899404533781853, guid: a7bb6f1125ef2f146942b7a4faa26168, type: 3}
-  Walls:
-  - Position: {x: -3.7, y: 0, z: 1.14}
-    Rotation: {x: 0, y: 0, z: 0, w: 0}
+  PiratePrefab: {fileID: 0}
+  Menaces:
+  - MenaceType: 0
+    Position: {x: -3.7, y: 0, z: 1.14}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
     TargetNeeded: 1
-  - Position: {x: -1.45, y: 0, z: 1.14}
-    Rotation: {x: 0, y: 0, z: 0, w: 0}
+  - MenaceType: 0
+    Position: {x: -1.45, y: 0, z: 1.14}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
     TargetNeeded: 1
-  - Position: {x: 0.79999995, y: 0, z: 1.14}
-    Rotation: {x: 0, y: 0, z: 0, w: 0}
+  - MenaceType: 0
+    Position: {x: 0.79999995, y: 0, z: 1.14}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
     TargetNeeded: 1
-  - Position: {x: 3.05, y: 0, z: 1.14}
-    Rotation: {x: 0, y: 0, z: 0, w: 0}
+  - MenaceType: 0
+    Position: {x: 3.05, y: 0, z: 1.14}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
     TargetNeeded: 1
-  - Position: {x: -2.41, y: 0, z: -0.69}
-    Rotation: {x: 0, y: 0.70710677, z: 0, w: 0.70710677}
+  - MenaceType: 0
+    Position: {x: 0.08, y: 0, z: 2.51}
+    Rotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
     TargetNeeded: 2
-  - Position: {x: 0.08, y: 0, z: 2.51}
-    Rotation: {x: 0, y: 0.70710677, z: 0, w: 0.70710677}
+  - MenaceType: 0
+    Position: {x: -2.41, y: 0, z: -0.69}
+    Rotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
     TargetNeeded: 2
-  - Position: {x: 2.84, y: 0, z: -0.6900006}
-    Rotation: {x: 0, y: 0.70710677, z: 0, w: 0.70710677}
+  - MenaceType: 0
+    Position: {x: 2.84, y: 0, z: -0.6900006}
+    Rotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
     TargetNeeded: 2
-  - Position: {x: 2.17, y: 0, z: 2.48}
-    Rotation: {x: 0, y: 0.70710677, z: 0, w: 0.70710677}
+  - MenaceType: 0
+    Position: {x: 2.17, y: 0, z: 2.48}
+    Rotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
     TargetNeeded: 3
-  - Position: {x: 0.06, y: 0, z: -0.69}
-    Rotation: {x: 0, y: 0.70710677, z: 0, w: 0.70710677}
+  - MenaceType: 0
+    Position: {x: 0.06, y: 0, z: -0.69}
+    Rotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
     TargetNeeded: 3
-  - Position: {x: -1.6500001, y: 0, z: 2.5500004}
-    Rotation: {x: 0, y: 0.70710677, z: 0, w: 0.70710677}
+  - MenaceType: 0
+    Position: {x: -1.6500001, y: 0, z: 2.5500004}
+    Rotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
     TargetNeeded: 3
