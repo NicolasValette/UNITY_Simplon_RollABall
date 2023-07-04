@@ -28,7 +28,7 @@ public class PlayerData : ScriptableObject
     #region Getters
     public float MoveSpeed { get { return _moveSpeed; } }
     public float RotationSpeed { get { return _rotationSpeed; } }
-    public KeyCode GetUpInput { get { return _keyCodeUp; } }
+    public KeyCode GetUpInput { get  => _keyCodeUp; } 
     public KeyCode GetDownInput { get { return _keyCodeDown; } }
     public KeyCode GetLeftInput { get { return _keyCodeLeft; } }
     public KeyCode GetRightInput { get { return _keyCodeRight; } }
